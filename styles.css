@@ -1,0 +1,260 @@
+/* Define CSS Variables */
+:root {
+    --primary-color: #1e90ff; /* Dodger Blue */
+    --primary-color-hover: #1c86ee; /* Slightly darker Dodger Blue for hover */
+    --secondary-color: #ffffff; /* White */
+    --background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    --text-color: #333; /* General text color */  
+    --gradient-border: linear-gradient(135deg, #63b8ff, #4682b4, #4169e1, #374ab5, #2c2ca5); /* Vibrant blue gradient */
+    --card-width: 120px; /* Card width */
+    --card-height: 180px; /* Card height */
+    --card-border-radius: 10px; /* Card rounded corners */
+    --profile-pic-size: 150px; /* Profile picture size */
+    --transition-duration: 0.3s; /* General transition duration */
+    --box-shadow-color: rgba(0, 0, 0, 0.2); /* Box shadow color */
+    --hover-box-shadow: rgba(30, 144, 255, 0.5); /* Hover box shadow color */
+}
+
+/* General Body Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Enhanced font */
+    margin: 0;
+    padding: 0;
+    background-image: url('images/background-image\ project.webp'); /* Background image */
+    background-size: cover; /* Make the background cover the entire page */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
+    color: var(--text-color);
+    text-align: center;
+    transition: background-color var(--transition-duration) ease-in-out;
+    animation: gradientBackground 10s infinite alternate;
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Gradient Background Animation */
+@keyframes gradientBackground {
+    0% {
+        background-color: #1e90ff; /* Dodger Blue */
+    }
+    50% {
+        background-color: #4682b4; /* Steel Blue */
+    }
+    100% {
+        background-color: #1e90ff; /* Dodger Blue */
+    }
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(30, 144, 255, 0.8); /* Semi-transparent Dodger Blue */
+    color: var(--secondary-color);
+    padding: 20px 0;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px var(--box-shadow-color); /* Subtle text shadow */
+    box-shadow: 0 4px 10px var(--box-shadow-color); /* Add header shadow */
+    position: sticky; /* Makes the header sticky */
+    top: 0;
+    z-index: 1000;
+    transition: box-shadow var(--transition-duration) ease-in-out;
+}
+
+header:hover {
+    box-shadow: 0 4px 15px var(--hover-box-shadow);
+}
+
+/* About Me Section */
+#about-me {
+    background-color: var(--background-color);
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    max-width: 600px; /* Maximum width for the container */
+    box-shadow: 0 4px 10px var(--box-shadow-color); /* Add shadow */
+    text-align: center;
+    line-height: 1.6; /* Improved readability */
+    animation: fadeIn var(--transition-duration) ease-in;
+}
+
+/* Profile Picture Styling (Instagram-like) */
+.profile-pic {
+    width: var(--profile-pic-size); /* Profile picture size */
+    height: var(--profile-pic-size); /* Profile picture size */
+    border-radius: 50%; /* Makes the profile picture circular */
+    background: var(--gradient-border); /* Instagram gradient border */
+    padding: 5px; /* Padding for the gradient border */
+    box-shadow: 0 4px 10px var(--box-shadow-color); /* Subtle shadow */
+    margin: 20px auto; /* Centers the profile picture */
+    display: block; /* Makes it a block-level element */
+    object-fit: cover; /* Ensures the image scales properly inside the circle */
+    background-clip: content-box; /* Prevents the gradient from overlapping the image */
+    transition: transform var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px var(--hover-box-shadow);
+}
+
+/* Cards Container */
+#cards-container {
+    display: flex; /* Align cards horizontally */
+    justify-content: space-around; /* Spread cards evenly */
+    align-items: center; /* Center the cards vertically */
+    margin: 20px 0;
+    padding: 10px;
+    flex-wrap: wrap; /* Make cards wrap on smaller screens */
+}
+
+/* Individual Card Styling */
+.card {
+    width: var(--card-width); /* Card width */
+    height: var(--card-height); /* Card height */
+    border-radius: var(--card-border-radius); /* Rounded corners */
+    background-color: #d3d3d3; /* Light grey for card background */
+    box-shadow: 0 4px 10px var(--box-shadow-color); /* Subtle shadow */
+    cursor: pointer;
+    background-size: cover; /* Ensure the image fills the card */
+    background-position: center; /* Center the card image */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    transition: transform var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px var(--hover-box-shadow);
+}
+
+/* Word Display */
+#word-display {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-transform: uppercase; /* All caps */
+    animation: pulse 1.5s infinite, colorChange 3s infinite alternate;
+}
+
+@keyframes colorChange {
+    0% {
+        color: var(--primary-color);
+    }
+    100% {
+        color: #ff8c00; /* Bright orange */
+    }
+}
+
+/* Score and Lives */
+#score-lives {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 0 10px;
+}
+
+#score-lives .lives {
+    font-size: 36px; /* Bigger text for Lives */
+    color: grey; /* Grey color for Lives text */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px var(--box-shadow-color);
+    animation: fadeIn var(--transition-duration) ease-in;
+}
+
+#score-lives .lives {
+    font-size: 36px; /* Bigger text for Lives */
+    color: pink; /* Pink color for Lives text */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px var(--box-shadow-color);
+    animation: fadeIn var(--transition-duration) ease-in;
+}
+
+#score-lives .lives {
+    font-size: 28px; /* Bigger text for Lives */
+    color: pink; /* Pink color for Lives text */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px var(--box-shadow-color);
+    animation: fadeIn var(--transition-duration) ease-in;
+}
+
+/* Input Field */
+#guess-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #d3d3d3; /* Light grey background for input */
+    transition: border-color var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
+}
+
+#guess-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+#guess-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 4px 8px var(--box-shadow-color);
+    transition: background-color var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
+}
+
+button:hover {
+    background-color: var(--primary-color-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--hover-box-shadow);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
